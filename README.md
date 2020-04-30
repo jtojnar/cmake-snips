@@ -1,6 +1,6 @@
 # Please fix your CMake builds
 
-As a very active downstream packager for a fringe Linux distro, I encounter many packages that have incorrect assumptions about systems they will run on or even build tools they use. Fortunately, most projects just work; if I focus my attention on projects using CMake, thought, the situation is sadder. Rarely does a CMake project not show at least one of the issues below.
+As a very active downstream packager for a Linux distro, I encounter many packages that have incorrect assumptions about systems they will run on or even build tools they use. Fortunately, most projects just work; if I focus my attention on projects using CMake, thought, the situation is sadder. Rarely does a CMake project not show at least one of the issues below.
 
 When a majority of projects make the same mistakes, one starts to wonder if CMake is perhaps too complex for human beings to use. But it would be unreasonable to expect projects to switch to something saner like Meson, so I will at least try to describe common issues and how to fix them.
 
