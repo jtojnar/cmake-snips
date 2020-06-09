@@ -1,9 +1,10 @@
 # Please fix your CMake builds
 
-As a very active downstream packager for a Linux distro, I encounter many packages that have incorrect assumptions about systems they will run on or even build tools they use. Fortunately, most projects just work; if I focus my attention on projects using CMake, thought, the situation is sadder. Rarely does a CMake project not show at least one of the issues below.
+As a very active downstream packager for a Linux distro, I often encounter packages that make assumptions which don’t hold for all systems they run on, or build tools they use. For projects using CMake especially, I find that many show at least one of the issues below.
 
-When a majority of projects make the same mistakes, one starts to wonder if CMake is perhaps too complex for human beings to use. But it would be unreasonable to expect projects to switch to something saner like Meson, so I will at least try to describe common issues and how to fix them.
+I compiled a list of issues in this document that come up regularly in CMake projects. For most of them, there are simple best practices that can be followed to keep a project portable.
 
+On a personal note, my recommendation is to move to the [Meson](https://mesonbuild.com/) build system where possible. It has a more modern design with better documentation, and does a good job avoiding common pitfalls. In my experience Meson makes life easier for both upstream developers and downstream packagers.
 
 ## Hardcoding the installation paths
 
