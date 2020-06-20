@@ -10,7 +10,7 @@ On a personal note, my recommendation is to move to the [Meson](https://mesonbui
 
 This is not limited to CMake. Fortunately, it is rare.
 
-[Filesystem Hiearachy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard) is useful default but there are many reasonable points someone would want to install a project to a different path than `/usr`. The standard also has shortcomings leading some distributions like GoboLinux or NixOS to deviate from it.
+The [Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard) is a useful default but there are many reasonable points someone would want to install a project to a different path than `/usr`. The standard also has shortcomings leading some distributions like GoboLinux or NixOS to deviate from it.
 
 Your project should allow changing the paths using something like [`GNUInstallDirs`](https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html). You also should not forget to update path references in the installed files.
 
