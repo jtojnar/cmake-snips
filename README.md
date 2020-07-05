@@ -46,6 +46,7 @@ configure_file(
   @ONLY)
 ```
 
+See also a [real-life example](https://github.com/fmtlib/fmt/pull/1657) of the fix in {fmt} library.
 
 ## License
 
