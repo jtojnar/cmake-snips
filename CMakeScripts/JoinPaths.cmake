@@ -1,5 +1,5 @@
 # This module provides function for joining paths
-# known from from most languages
+# known from most languages
 #
 # SPDX-License-Identifier: (MIT OR CC0-1.0)
 # Copyright 2020 Jan Tojnar
