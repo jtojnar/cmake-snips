@@ -1,4 +1,4 @@
-# This module provides function for joining paths
+# This module provides functions for joining paths
 # known from most languages
 #
 # SPDX-License-Identifier: (MIT OR CC0-1.0)
@@ -16,6 +16,23 @@ function(join_paths joined_path first_path_segment)
                 set(temp_path "${current_segment}")
             else()
                 set(temp_path "${temp_path}/${current_segment}")
+            endif()
+        endif()
+    endforeach()
+    set(${joined_path} "${temp_path}" PARENT_SCOPE)
+endfunction()
+
+function(join_paths_for_pkgconfig joined_path first_path_segment)
+    set(temp_path "${first_path_segment}")
+    foreach(current_segment IN LISTS ARGN)
+        if(NOT ("${current_segment}" STREQUAL ""))
+            string(REGEX REPLACE "^${CMAKE_INSTALL_PREFIX}/?" "" new_segment "${current_segment}")
+            if(NOT ("${new_segment}" STREQUAL ""))
+                if(NOT IS_ABSOLUTE "${current_segment}" OR NOT "${current_segment}" MATCHES "^${new_segment}$")
+                    set(temp_path "${temp_path}/${new_segment}")
+                else()
+                    set(temp_path "${current_segment}")
+                endif()
             endif()
         endif()
     endforeach()
