@@ -31,10 +31,10 @@ If you need absolute paths, **never** concatenate `CMAKE_INSTALL_<dir>` to `CMAK
 
 This is actually the same issue as the previous one but with a slight twist. The variables in pkg-config files are expected to contain interpolations (e.g. `completiondir=${datadir}/bash-completion`) so that projects can install files relative their own directories instead of the ones of the project whose variables they use (see https://www.bassi.io/articles/2018/03/15/pkg-config-and-paths/). This means you cannot just use the `CMAKE_INSTALL_FULL_<dir>` variables and need to construct the paths yourself.
 
-For CMake ≥ 3.19, you can use the [`cmake_path`](https://cmake.org/cmake/help/latest/command/cmake_path.html#append) function:
+For CMake ≥ 3.20, you can use the [`cmake_path`](https://cmake.org/cmake/help/latest/command/cmake_path.html#append) function:
 
 ```cmake
-cmake_minimum_required(VERSION 3.19.0) # For cmake_path function
+cmake_minimum_required(VERSION 3.20) # For cmake_path function
 
 # …
 
@@ -46,7 +46,7 @@ configure_file(
   @ONLY)
 ```
 
-Unfortunately, CMake < 3.19 does not provide a function for joining paths so you will need to add it yourself. I have created a [module](CMakeScripts/JoinPaths.cmake) you can copy to your code base and use as follows:
+Unfortunately, CMake < 3.20 does not provide a function for joining paths so you will need to add it yourself. I have created a [module](CMakeScripts/JoinPaths.cmake) you can copy to your code base and use as follows:
 
 ```cmake
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/CMakeScripts")
